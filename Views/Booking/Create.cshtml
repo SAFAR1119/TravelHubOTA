@@ -1,0 +1,166 @@
+@model TravelHubOTA.Models.Booking
+
+@{
+    ViewData["Title"] = "Create Booking";
+    var hotel = ViewBag.Hotel as TravelHubOTA.Models.Hotel;
+}
+
+<div class="container">
+
+    <div class="mb-4">
+
+        <a asp-controller="Hotel"
+           asp-action="Details"
+           asp-route-id="@hotel?.Id"
+           class="btn btn-outline-secondary">
+            ← Back to Hotel
+        </a>
+
+    </div>
+
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-7">
+
+            <div class="card shadow-sm">
+
+                <div class="card-body p-4">
+
+                    <h2 class="mb-1">
+                        Book @hotel?.Name
+                    </h2>
+
+                    <p class="text-muted">
+                        📍 @hotel?.City, @hotel?.Country
+                    </p>
+
+                    <hr />
+
+                    <form asp-action="Create"
+                          method="post">
+
+                        <input type="hidden"
+                               asp-for="HotelId" />
+
+                        <input type="hidden"
+                               name="HotelId"
+                               value="@hotel?.Id" />
+
+
+                        <!-- Guest Name -->
+                        <div class="mb-3">
+
+                            <label asp-for="GuestName"
+                                   class="form-label">
+                                Guest Name
+                            </label>
+
+                            <input asp-for="GuestName"
+                                   class="form-control"
+                                   placeholder="Enter guest full name" />
+
+                            <span asp-validation-for="GuestName"
+                                  class="text-danger">
+                            </span>
+
+                        </div>
+
+
+                        <!-- Check In -->
+                        <div class="mb-3">
+
+                            <label asp-for="CheckIn"
+                                   class="form-label">
+                                Check In
+                            </label>
+
+                            <input asp-for="CheckIn"
+                                   type="date"
+                                   class="form-control" />
+
+                            <span asp-validation-for="CheckIn"
+                                  class="text-danger">
+                            </span>
+
+                        </div>
+
+
+                        <!-- Check Out -->
+                        <div class="mb-3">
+
+                            <label asp-for="CheckOut"
+                                   class="form-label">
+                                Check Out
+                            </label>
+
+                            <input asp-for="CheckOut"
+                                   type="date"
+                                   class="form-control" />
+
+                            <span asp-validation-for="CheckOut"
+                                  class="text-danger">
+                            </span>
+
+                        </div>
+
+
+                        <!-- Rooms -->
+                        <div class="mb-4">
+
+                            <label asp-for="Rooms"
+                                   class="form-label">
+                                Number of Rooms
+                            </label>
+
+                            <input asp-for="Rooms"
+                                   type="number"
+                                   min="1"
+                                   max="@hotel?.RoomsAvailable"
+                                   class="form-control" />
+
+                            <span asp-validation-for="Rooms"
+                                  class="text-danger">
+                            </span>
+
+                            <small class="text-muted">
+                                @hotel?.RoomsAvailable rooms currently available.
+                            </small>
+
+                        </div>
+
+
+                        <!-- Price Information -->
+                        <div class="alert alert-light border">
+
+                            <strong>Price:</strong>
+
+                            $@hotel?.PricePerNight per room / night
+
+                        </div>
+
+
+                        <button type="submit"
+                                class="btn btn-primary btn-lg w-100">
+                            Confirm Booking
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts {
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+}

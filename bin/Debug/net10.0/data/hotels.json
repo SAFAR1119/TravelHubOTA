@@ -1,0 +1,45 @@
+[
+  {
+    "Id": 1,
+    "Name": "Pan Pacific Sonargaon",
+    "City": "Dhaka",
+    "Country": "Bangladesh",
+    "Stars": 5,
+    "PricePerNight": 140,
+    "RoomsAvailable": 20,
+    "Facilities": [
+      "WiFi",
+      "Pool",
+      "Breakfast",
+      "Gym"
+    ]
+  },
+  {
+    "Id": 2,
+    "Name": "Sea Pearl Beach Resort",
+    "City": "Cox's Bazar",
+    "Country": "Bangladesh",
+    "Stars": 5,
+    "PricePerNight": 180,
+    "RoomsAvailable": 15,
+    "Facilities": [
+      "Beach",
+      "Pool",
+      "Spa"
+    ]
+  },
+  {
+    "Id": 3,
+    "Name": "Hotel Sarina",
+    "City": "Dhaka",
+    "Country": "Bangladesh",
+    "Stars": 4,
+    "PricePerNight": 95,
+    "RoomsAvailable": 30,
+    "Facilities": [
+      "WiFi",
+      "Restaurant",
+      "Parking"
+    ]
+  }
+]

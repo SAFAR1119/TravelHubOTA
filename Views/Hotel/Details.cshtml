@@ -1,0 +1,107 @@
+@model TravelHubOTA.Models.Hotel
+
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<div class="container">
+
+    <!-- Back Button -->
+    <div class="mb-4">
+        <a asp-controller="Home"
+           asp-action="Index"
+           class="btn btn-outline-secondary">
+            ← Back to Hotels
+        </a>
+    </div>
+
+
+    <!-- Hotel Information -->
+    <div class="row">
+
+        <!-- Hotel Image -->
+        <div class="col-lg-7 mb-4">
+
+            <img src="~/images/hotels/@Model.Image"
+                 class="img-fluid rounded-4 shadow-sm w-100"
+                 style="height:450px; object-fit:cover;"
+                 alt="@Model.Name">
+
+        </div>
+
+
+        <!-- Hotel Details -->
+        <div class="col-lg-5">
+
+            <h1 class="fw-bold">
+                @Model.Name
+            </h1>
+
+            <p class="text-muted fs-5">
+                📍 @Model.City, @Model.Country
+            </p>
+
+
+            <!-- Rating -->
+            <div class="mb-3">
+
+                @for (int i = 0; i < Model.Stars; i++)
+                {
+                    <span class="text-warning fs-4">★</span>
+                }
+
+            </div>
+
+
+            <!-- Price -->
+            <div class="mb-4">
+
+                <h2 class="text-success">
+                    $@Model.PricePerNight
+                    <small class="text-muted fs-6">
+                        / night
+                    </small>
+                </h2>
+
+            </div>
+
+
+            <!-- Availability -->
+            <div class="alert alert-info">
+
+                <strong>@Model.RoomsAvailable</strong>
+                rooms currently available.
+
+            </div>
+
+
+            <!-- Facilities -->
+            <h4 class="mt-4">
+                Facilities
+            </h4>
+
+            <div class="mb-4">
+
+                @foreach (var facility in Model.Facilities)
+                {
+                    <span class="badge bg-light text-dark border me-2 mb-2 p-2">
+                        @facility
+                    </span>
+                }
+
+            </div>
+
+
+            <!-- Book Button -->
+            <a asp-controller="Booking"
+               asp-action="Create"
+               asp-route-hotelId="@Model.Id"
+               class="btn btn-primary btn-lg w-100">
+                 Book This Hotel
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
