@@ -5,10 +5,14 @@ namespace TravelHubOTA.Services;
 public class BookingService
 {
     private readonly JsonService _jsonService;
+    private readonly HotelService _hotelService;
 
-    public BookingService(JsonService jsonService)
+    public BookingService(
+        JsonService jsonService,
+        HotelService hotelService)
     {
         _jsonService = jsonService;
+        _hotelService = hotelService;
     }
 
     public List<Booking> GetAllBookings()
@@ -22,8 +26,20 @@ public class BookingService
             .FirstOrDefault(b => b.Id == id);
     }
 
-    public Booking CreateBooking(Booking booking)
+    public Booking? CreateBooking(Booking booking)
     {
+        var hotel = _hotelService.GetHotelById(booking.HotelId);
+
+        if (hotel == null)
+        {
+            return null;
+        }
+
+        if (booking.Rooms > hotel.RoomsAvailable)
+        {
+            return null;
+        }
+
         var bookings = GetAllBookings();
 
         if (bookings.Count > 0)
@@ -40,6 +56,10 @@ public class BookingService
         bookings.Add(booking);
 
         _jsonService.Write("bookings.json", bookings);
+
+        _hotelService.UpdateRoomAvailability(
+            booking.HotelId,
+            booking.Rooms);
 
         return booking;
     }

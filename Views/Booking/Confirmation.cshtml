@@ -1,0 +1,176 @@
+@model TravelHubOTA.Models.Booking
+
+@{
+    ViewData["Title"] = "Booking Confirmed";
+    var hotel = ViewBag.Hotel as TravelHubOTA.Models.Hotel;
+}
+
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8">
+
+            <!-- Success Message -->
+            <div class="text-center mb-4">
+
+                <div class="display-1 text-success">
+                    ✓
+                </div>
+
+                <h1 class="fw-bold">
+                    Booking Confirmed
+                </h1>
+
+                <p class="text-muted">
+                    Your hotel booking has been successfully created.
+                </p>
+
+            </div>
+
+
+            <!-- Booking Card -->
+            <div class="card shadow-sm">
+
+                <div class="card-body p-4">
+
+                    <!-- Booking Reference -->
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+
+                        <div>
+                            <small class="text-muted">
+                                Booking Reference
+                            </small>
+
+                            <h3 class="mb-0">
+                                #TH-@Model.Id.ToString("D5")
+                            </h3>
+                        </div>
+
+                        <span class="badge bg-success fs-6">
+                            @Model.Status
+                        </span>
+
+                    </div>
+
+                    <hr />
+
+
+                    <!-- Hotel -->
+                    <div class="mb-4">
+
+                        <h5>Hotel</h5>
+
+                        <h3>
+                            @hotel?.Name
+                        </h3>
+
+                        <p class="text-muted">
+                            📍 @hotel?.City, @hotel?.Country
+                        </p>
+
+                    </div>
+
+
+                    <!-- Guest Information -->
+                    <div class="row mb-4">
+
+                        <div class="col-md-6">
+
+                            <small class="text-muted">
+                                Guest Name
+                            </small>
+
+                            <p class="fw-semibold">
+                                @Model.GuestName
+                            </p>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <small class="text-muted">
+                                Number of Rooms
+                            </small>
+
+                            <p class="fw-semibold">
+                                @Model.Rooms
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Dates -->
+                    <div class="row mb-4">
+
+                        <div class="col-md-6">
+
+                            <small class="text-muted">
+                                Check In
+                            </small>
+
+                            <p class="fw-semibold">
+                                @Model.CheckIn.ToString("dd MMM yyyy")
+                            </p>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <small class="text-muted">
+                                Check Out
+                            </small>
+
+                            <p class="fw-semibold">
+                                @Model.CheckOut.ToString("dd MMM yyyy")
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <hr />
+
+
+                    <!-- Total -->
+                    <div class="d-flex justify-content-between align-items-center">
+
+                        <span class="fs-5">
+                            Total Booking Amount
+                        </span>
+
+                        <span class="fs-3 fw-bold text-success">
+                            $@Model.TotalPrice
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Actions -->
+            <div class="d-flex gap-2 justify-content-center mt-4">
+
+                <a asp-controller="Home"
+                   asp-action="Index"
+                   class="btn btn-primary">
+                    Browse More Hotels
+                </a>
+
+                <button onclick="window.print()"
+                        class="btn btn-outline-secondary">
+                    Print Confirmation
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

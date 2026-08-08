@@ -40,4 +40,27 @@ public class HotelService
                 h.Country.ToLower().Contains(search))
             .ToList();
     }
+
+    public bool UpdateRoomAvailability(int hotelId, int roomsBooked)
+    {
+        var hotels = GetAllHotels();
+
+        var hotel = hotels.FirstOrDefault(h => h.Id == hotelId);
+
+        if (hotel == null)
+        {
+            return false;
+        }
+
+        if (roomsBooked > hotel.RoomsAvailable)
+        {
+            return false;
+        }
+
+        hotel.RoomsAvailable -= roomsBooked;
+
+        _jsonService.Write("hotels.json", hotels);
+
+        return true;
+    }
 }

@@ -56,9 +56,17 @@ public class BookingController : Controller
                 "At least one room must be selected.");
         }
 
+        if (booking.Rooms > hotel.RoomsAvailable)
+        {
+            ModelState.AddModelError(
+                "Rooms",
+                $"Only {hotel.RoomsAvailable} rooms are available.");
+        }
+
         if (!ModelState.IsValid)
         {
             ViewBag.Hotel = hotel;
+
             return View(booking);
         }
 
@@ -69,9 +77,21 @@ public class BookingController : Controller
             booking.Rooms *
             hotel.PricePerNight;
 
+        // Temporary until agency login is implemented.
         booking.AgencyId = 1;
 
         var createdBooking = _bookingService.CreateBooking(booking);
+
+        if (createdBooking == null)
+        {
+            ModelState.AddModelError(
+                "",
+                "Unable to create booking. Please check room availability.");
+
+            ViewBag.Hotel = _hotelService.GetHotelById(booking.HotelId);
+
+            return View(booking);
+        }
 
         return RedirectToAction(
             "Confirmation",
