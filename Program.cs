@@ -7,6 +7,16 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<JsonService>();
 builder.Services.AddSingleton<HotelService>();
 builder.Services.AddSingleton<BookingService>();
+builder.Services.AddSingleton<AgencyService>();
+
+builder.Services.AddDistributedMemoryCache();
+
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromHours(2);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
 
 var app = builder.Build();
 
@@ -22,6 +32,8 @@ app.UseHttpsRedirection();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.UseSession();
 
 app.MapStaticAssets();
 

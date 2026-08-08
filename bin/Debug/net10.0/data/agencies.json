@@ -4,5 +4,11 @@
     "Name": "ABC Travel",
     "Email": "agency@test.com",
     "Password": "123456"
+  },
+  {
+    "Id": 2,
+    "Name": "Chittagong Travel",
+    "Email": "admin@admin.com",
+    "Password": "1234"
   }
 ]

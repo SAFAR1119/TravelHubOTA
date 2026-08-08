@@ -47,11 +47,34 @@
                         </a>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link">
-                            Login
+                     @if (Context.Session.GetInt32("AgencyId") != null)
+                    {
+                     <li class="nav-item">
+                        <a class="nav-link"
+                          asp-controller="Dashboard"
+                          asp-action="Index">
+                           Dashboard
+                       </a>
+                     </li>
+
+                     <li class="nav-item">
+                       <a class="nav-link"
+                         asp-controller="Account"
+                         asp-action="Logout">
+                          Logout
                         </a>
-                    </li>
+                     </li>
+                    }
+                   else
+                    {
+                     <li class="nav-item">
+                       <a class="nav-link"
+                       asp-controller="Account"
+                       asp-action="Login">
+                         Login
+                      </a>
+                  </li>
+                  }
 
                 </ul>
 

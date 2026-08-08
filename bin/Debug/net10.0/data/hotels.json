@@ -7,6 +7,7 @@
     "Stars": 5,
     "PricePerNight": 140,
     "RoomsAvailable": 20,
+    "Image": "",
     "Facilities": [
       "WiFi",
       "Pool",
@@ -17,11 +18,12 @@
   {
     "Id": 2,
     "Name": "Sea Pearl Beach Resort",
-    "City": "Cox's Bazar",
+    "City": "Cox\u0027s Bazar",
     "Country": "Bangladesh",
     "Stars": 5,
     "PricePerNight": 180,
-    "RoomsAvailable": 15,
+    "RoomsAvailable": 0,
+    "Image": "",
     "Facilities": [
       "Beach",
       "Pool",
@@ -36,6 +38,7 @@
     "Stars": 4,
     "PricePerNight": 95,
     "RoomsAvailable": 30,
+    "Image": "",
     "Facilities": [
       "WiFi",
       "Restaurant",

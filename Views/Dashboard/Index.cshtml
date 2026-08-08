@@ -1,0 +1,188 @@
+@{
+    ViewData["Title"] = "Agency Dashboard";
+
+    var agency = ViewBag.Agency as TravelHubOTA.Models.Agency;
+
+    var bookings =
+        ViewBag.Bookings as List<TravelHubOTA.Models.Booking>
+        ?? new List<TravelHubOTA.Models.Booking>();
+}
+
+<div class="mb-4">
+
+    <h1 class="fw-bold">
+        Agency Dashboard
+    </h1>
+
+    <p class="text-muted">
+        Welcome, @agency?.Name
+    </p>
+
+</div>
+
+
+<div class="row g-4 mb-5">
+
+    <div class="col-md-4">
+
+        <div class="card shadow-sm border-0">
+
+            <div class="card-body">
+
+                <p class="text-muted mb-1">
+                    Total Bookings
+                </p>
+
+                <h2 class="fw-bold">
+                    @bookings.Count
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="col-md-4">
+
+        <div class="card shadow-sm border-0">
+
+            <div class="card-body">
+
+                <p class="text-muted mb-1">
+                    Confirmed Bookings
+                </p>
+
+                <h2 class="fw-bold text-success">
+                    @bookings.Count(b => b.Status == "Confirmed")
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="col-md-4">
+
+        <div class="card shadow-sm border-0">
+
+            <div class="card-body">
+
+                <p class="text-muted mb-1">
+                    Total Booking Value
+                </p>
+
+                <h2 class="fw-bold">
+                    $@bookings.Sum(b => b.TotalPrice)
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card shadow-sm">
+
+    <div class="card-body">
+
+        <div class="d-flex justify-content-between align-items-center mb-3">
+
+            <h4 class="mb-0">
+                Recent Bookings
+            </h4>
+
+            <a asp-controller="Home"
+               asp-action="Index"
+               class="btn btn-primary">
+                Search Hotels
+            </a>
+
+        </div>
+
+
+        @if (bookings.Count == 0)
+        {
+            <div class="alert alert-light border">
+                You don't have any bookings yet.
+            </div>
+        }
+        else
+        {
+            <div class="table-responsive">
+
+                <table class="table align-middle">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Reference</th>
+                            <th>Guest</th>
+                            <th>Check In</th>
+                            <th>Check Out</th>
+                            <th>Rooms</th>
+                            <th>Total</th>
+                            <th>Status</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        @foreach (var booking in bookings)
+                        {
+                            <tr>
+
+                                <td>
+                                    <strong>
+                                        #TH-@booking.Id.ToString("D5")
+                                    </strong>
+                                </td>
+
+                                <td>
+                                    @booking.GuestName
+                                </td>
+
+                                <td>
+                                    @booking.CheckIn.ToString("dd MMM yyyy")
+                                </td>
+
+                                <td>
+                                    @booking.CheckOut.ToString("dd MMM yyyy")
+                                </td>
+
+                                <td>
+                                    @booking.Rooms
+                                </td>
+
+                                <td>
+                                    $@booking.TotalPrice
+                                </td>
+
+                                <td>
+                                    <span class="badge bg-success">
+                                        @booking.Status
+                                    </span>
+                                </td>
+
+                            </tr>
+                        }
+
+                    </tbody>
+
+                </table>
+
+            </div>
+        }
+
+    </div>
+
+</div>
