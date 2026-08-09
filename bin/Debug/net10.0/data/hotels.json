@@ -6,7 +6,7 @@
     "Country": "Bangladesh",
     "Stars": 5,
     "PricePerNight": 140,
-    "RoomsAvailable": 19,
+    "RoomsAvailable": 22,
     "Image": "",
     "Facilities": [
       "WiFi",
@@ -22,7 +22,7 @@
     "Country": "Bangladesh",
     "Stars": 5,
     "PricePerNight": 180,
-    "RoomsAvailable": 0,
+    "RoomsAvailable": 20,
     "Image": "",
     "Facilities": [
       "Beach",

@@ -2,13 +2,13 @@
   {
     "Id": 1,
     "Name": "ABC Travel",
-    "Email": "agency@test.com",
+    "Email": "agency@safar.com",
     "Password": "123456"
   },
   {
     "Id": 2,
     "Name": "Chittagong Travel",
-    "Email": "admin@admin.com",
+    "Email": "admin@ctg.com",
     "Password": "1234"
   }
 ]

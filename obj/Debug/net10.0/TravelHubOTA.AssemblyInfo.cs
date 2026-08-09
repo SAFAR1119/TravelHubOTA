@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TravelHubOTA")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5e6188da9d45119a501af8055e9dc20942875537")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9a3a67bda360dae282960fe82c109112ca3e0813")]
 [assembly: System.Reflection.AssemblyProductAttribute("TravelHubOTA")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TravelHubOTA")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
