@@ -44,5 +44,176 @@
       "Restaurant",
       "Parking"
     ]
+  },
+  {
+    "Id": 11,
+    "Name": "The Westin Dhaka",
+    "City": "Dhaka",
+    "Country": "Bangladesh",
+    "Stars": 5,
+    "PricePerNight": 145,
+    "RoomsAvailable": 18,
+    "Image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=80",
+    "Facilities": [
+      "Free WiFi",
+      "Swimming Pool",
+      "Restaurant",
+      "Fitness Center",
+      "Airport Transfer"
+    ]
+  },
+  {
+    "Id": 12,
+    "Name": "Amari Dhaka",
+    "City": "Dhaka",
+    "Country": "Bangladesh",
+    "Stars": 5,
+    "PricePerNight": 125,
+    "RoomsAvailable": 22,
+    "Image": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=900&q=80",
+    "Facilities": [
+      "Free WiFi",
+      "Swimming Pool",
+      "Restaurant",
+      "Spa",
+      "Fitness Center"
+    ]
+  },
+  {
+    "Id": 13,
+    "Name": "Radisson Blu Chattogram Bay View",
+    "City": "Chittagong",
+    "Country": "Bangladesh",
+    "Stars": 5,
+    "PricePerNight": 110,
+    "RoomsAvailable": 20,
+    "Image": "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=900&q=80",
+    "Facilities": [
+      "Free WiFi",
+      "Swimming Pool",
+      "Restaurant",
+      "Fitness Center",
+      "Business Center"
+    ]
+  },
+  {
+    "Id": 14,
+    "Name": "The Peninsula Chittagong",
+    "City": "Chittagong",
+    "Country": "Bangladesh",
+    "Stars": 4,
+    "PricePerNight": 95,
+    "RoomsAvailable": 16,
+    "Image": "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=900&q=80",
+    "Facilities": [
+      "Free WiFi",
+      "Swimming Pool",
+      "Restaurant",
+      "Spa",
+      "Parking"
+    ]
+  },
+  {
+    "Id": 15,
+    "Name": "Hotel Agrabad",
+    "City": "Chittagong",
+    "Country": "Bangladesh",
+    "Stars": 4,
+    "PricePerNight": 85,
+    "RoomsAvailable": 25,
+    "Image": "https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=900&q=80",
+    "Facilities": [
+      "Free WiFi",
+      "Restaurant",
+      "Swimming Pool",
+      "Conference Room",
+      "Parking"
+    ]
+  },
+  {
+    "Id": 16,
+    "Name": "The Avenue Hotel & Suites",
+    "City": "Chittagong",
+    "Country": "Bangladesh",
+    "Stars": 4,
+    "PricePerNight": 75,
+    "RoomsAvailable": 14,
+    "Image": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=900&q=80",
+    "Facilities": [
+      "Free WiFi",
+      "Restaurant",
+      "Room Service",
+      "Parking",
+      "Business Center"
+    ]
+  },
+  {
+    "Id": 17,
+    "Name": "Well Park Residence",
+    "City": "Chittagong",
+    "Country": "Bangladesh",
+    "Stars": 4,
+    "PricePerNight": 70,
+    "RoomsAvailable": 19,
+    "Image": "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=900&q=80",
+    "Facilities": [
+      "Free WiFi",
+      "Restaurant",
+      "Room Service",
+      "Fitness Center",
+      "Parking"
+    ]
+  },
+  {
+    "Id": 18,
+    "Name": "Long Beach Hotel",
+    "City": "Cox\u0027s Bazar",
+    "Country": "Bangladesh",
+    "Stars": 4,
+    "PricePerNight": 100,
+    "RoomsAvailable": 24,
+    "Image": "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=900&q=80",
+    "Facilities": [
+      "Free WiFi",
+      "Swimming Pool",
+      "Restaurant",
+      "Fitness Center",
+      "Parking"
+    ]
+  },
+  {
+    "Id": 19,
+    "Name": "Sayeman Beach Resort",
+    "City": "Cox\u0027s Bazar",
+    "Country": "Bangladesh",
+    "Stars": 5,
+    "PricePerNight": 155,
+    "RoomsAvailable": 28,
+    "Image": "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=900&q=80",
+    "Facilities": [
+      "Free WiFi",
+      "Private Beach",
+      "Swimming Pool",
+      "Restaurant",
+      "Spa",
+      "Fitness Center"
+    ]
+  },
+  {
+    "Id": 20,
+    "Name": "Cox Beach Resort",
+    "City": "Cox\u0027s Bazar",
+    "Country": "Bangladesh",
+    "Stars": 4,
+    "PricePerNight": 90,
+    "RoomsAvailable": 21,
+    "Image": "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=900&q=80",
+    "Facilities": [
+      "Free WiFi",
+      "Beach",
+      "Restaurant",
+      "Swimming Pool",
+      "Parking"
+    ]
   }
 ]

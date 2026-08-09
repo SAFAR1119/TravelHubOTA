@@ -5,15 +5,15 @@ namespace TravelHubOTA.Controllers;
 
 public class DashboardController : Controller
 {
-    private readonly AgencyService _agencyService;
     private readonly BookingService _bookingService;
+    private readonly AgencyService _agencyService;
 
     public DashboardController(
-        AgencyService agencyService,
-        BookingService bookingService)
+        BookingService bookingService,
+        AgencyService agencyService)
     {
-        _agencyService = agencyService;
         _bookingService = bookingService;
+        _agencyService = agencyService;
     }
 
     public IActionResult Index()
@@ -30,22 +30,18 @@ public class DashboardController : Controller
         var agency = _agencyService.GetAgencyById(
             agencyId.Value);
 
-        if (agency == null)
-        {
-            HttpContext.Session.Clear();
-
-            return RedirectToAction(
-                "Login",
-                "Account");
-        }
-
         var bookings = _bookingService
-            .GetAllBookings()
-            .Where(b => b.AgencyId == agencyId.Value)
-            .ToList();
+            .GetBookingsByAgency(agencyId.Value);
 
         ViewBag.Agency = agency;
         ViewBag.Bookings = bookings;
+
+        // Calculate confirmed booking value
+        var totalBookingValue = bookings
+            .Where(b => b.Status == "Confirmed")
+            .Sum(b => b.TotalPrice);
+
+        ViewBag.TotalBookingValue = totalBookingValue;
 
         return View();
     }

@@ -1,104 +1,267 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>@ViewData["Title"] - TravelHub OTA</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <title>
+        @ViewData["Title"] - TravelHub OTA
+    </title>
+
+    <link rel="stylesheet"
+          href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <link rel="stylesheet"
+          href="~/css/site.css"
+          asp-append-version="true" />
+
 </head>
 
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+    <!-- NAVBAR -->
+
+    <nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top">
+
         <div class="container">
 
-            <a class="navbar-brand fw-bold"
+            <!-- Brand -->
+
+            <a class="navbar-brand d-flex align-items-center gap-2"
                asp-controller="Home"
                asp-action="Index">
-                ✈️ TravelHub OTA
+
+                <span class="brand-icon">
+                    ✈
+                </span>
+
+                <span class="fw-bold">
+                    TravelHub
+                </span>
+
+                <span class="badge bg-primary-subtle text-primary">
+                    B2B
+                </span>
+
             </a>
+
+
+            <!-- Mobile button -->
 
             <button class="navbar-toggler"
                     type="button"
                     data-bs-toggle="collapse"
-                    data-bs-target="#navbar">
+                    data-bs-target="#mainNavbar">
+
                 <span class="navbar-toggler-icon"></span>
+
             </button>
 
-            <div class="collapse navbar-collapse" id="navbar">
 
-                <ul class="navbar-nav ms-auto">
+            <!-- Navigation -->
 
-                 <li class="nav-item">
-                     <a class="nav-link"
-                         asp-controller="Home"
-                         asp-action="Index">
-                         Hotels
-                       </a>
-                  </li>
+            <div class="collapse navbar-collapse"
+                 id="mainNavbar">
 
-                 @if (Context.Session.GetInt32("AgencyId") != null)
-                  {
-                   <li class="nav-item">
-                     <a class="nav-link"
-                         asp-controller="Dashboard"
-                         asp-action="Index">
-                        Dashboard
-                     </a>
-                   </li>
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
 
-                   <li class="nav-item">
-                      <a class="nav-link"
-                         asp-controller="Booking"
-                         asp-action="MyBookings">
-                         My Bookings
-                      </a>
-                   </li>
+                    <li class="nav-item">
 
-                   <li class="nav-item">
-                     <a class="nav-link"
-                     asp-controller="Account"
-                     asp-action="Logout">
-                      Logout
-                    </a>
-                   </li>
-                  }
-                  else
-                  {
-                  <li class="nav-item">
-                      <a class="nav-link"
-                      asp-controller="Account"
-                       asp-action="Login">
-                     Login
-                      </a>
-                 </li>
-                   }
+                        <a class="nav-link"
+                           asp-controller="Home"
+                           asp-action="Index">
+
+                            Hotels
+
+                        </a>
+
+                    </li>
+
+
+                    @if (Context.Session.GetInt32("AgencyId") != null)
+                    {
+
+                        <li class="nav-item">
+
+                            <a class="nav-link"
+                               asp-controller="Dashboard"
+                               asp-action="Index">
+
+                                Dashboard
+
+                            </a>
+
+                        </li>
+
+
+                        <li class="nav-item">
+
+                            <a class="nav-link"
+                               asp-controller="Booking"
+                               asp-action="MyBookings">
+
+                                My Bookings
+
+                            </a>
+
+                        </li>
+
+
+                        <li class="nav-item dropdown">
+
+                            <a class="nav-link dropdown-toggle"
+                               href="#"
+                               role="button"
+                               data-bs-toggle="dropdown">
+
+                                Agency
+
+                            </a>
+
+
+                            <ul class="dropdown-menu dropdown-menu-end">
+
+                                <li>
+
+                                    <a class="dropdown-item"
+                                       asp-controller="Dashboard"
+                                       asp-action="Index">
+
+                                        Dashboard
+
+                                    </a>
+
+                                </li>
+
+
+                                <li>
+
+                                    <a class="dropdown-item"
+                                       asp-controller="Booking"
+                                       asp-action="MyBookings">
+
+                                        My Bookings
+
+                                    </a>
+
+                                </li>
+
+
+                                <li>
+                                    <hr class="dropdown-divider" />
+                                </li>
+
+
+                                <li>
+
+                                    <a class="dropdown-item text-danger"
+                                       asp-controller="Account"
+                                       asp-action="Logout">
+
+                                        Logout
+
+                                    </a>
+
+                                </li>
+
+                            </ul>
+
+                        </li>
+
+                    }
+                    else
+                    {
+
+                        <li class="nav-item">
+
+                            <a class="btn btn-primary px-4"
+                               asp-controller="Account"
+                               asp-action="Login">
+
+                                Agency Login
+
+                            </a>
+
+                        </li>
+
+                    }
 
                 </ul>
 
             </div>
 
         </div>
+
     </nav>
 
-    <!-- Page Content -->
-    <main class="container mt-4">
+
+    <!-- MAIN CONTENT -->
+
+    <main>
+
         @RenderBody()
+
     </main>
 
-    <!-- Footer -->
-    <footer class="border-top mt-5 py-4 text-center text-muted">
-        &copy; @DateTime.Now.Year - TravelHub OTA
+
+    <!-- FOOTER -->
+
+    <footer class="border-top mt-5">
+
+        <div class="container py-4">
+
+            <div class="row">
+
+                <div class="col-md-6">
+
+                    <h5 class="fw-bold">
+                        ✈ TravelHub
+                    </h5>
+
+                    <p class="text-muted mb-0">
+                    Simple B2B developed by Safar Ahmed.
+                    </p>
+
+                </div>
+
+
+                <div class="col-md-6 text-md-end">
+
+                    <small class="text-muted">
+                        Built with ASP.NET Core MVC · Razor · Bootstrap
+                    </small>
+
+                    <br />
+
+                    <small class="text-muted">
+                        © 2026 Safar Ahmed
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
     </footer>
 
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
-    @await RenderSectionAsync("Scripts", required: false)
+    <script src="~/js/site.js"
+            asp-append-version="true">
+    </script>
+
+    @await RenderSectionAsync(
+        "Scripts",
+        required: false)
 
 </body>
+
 </html>

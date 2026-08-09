@@ -1,31 +1,216 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
+    html {
+        font-size: 16px;
+    }
 }
 
 body {
-  margin-bottom: 60px;
+    background-color: #f8fafc;
+    color: #1e293b;
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
+
+/* ================================
+   NAVBAR
+================================ */
+
+.navbar {
+    min-height: 72px;
 }
 
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
+.navbar-brand {
+    color: #0f172a;
+}
+
+.navbar-brand:hover {
+    color: #0d6efd;
+}
+
+.brand-icon {
+    width: 36px;
+    height: 36px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #0d6efd;
+    color: white;
+
+    font-size: 18px;
+}
+
+
+/* ================================
+   LINKS
+================================ */
+
+.nav-link {
+    color: #475569;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: #0d6efd;
+}
+
+
+/* ================================
+   CARDS
+================================ */
+
+.card {
+    border-radius: 14px;
+}
+
+.card:hover {
+    transition: 0.2s ease;
+}
+
+
+/* ================================
+   HOTEL CARDS
+================================ */
+
+.hotel-card {
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    background: white;
+}
+
+.hotel-card:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 10px 25px rgba(15, 23, 42, 0.08);
+}
+
+.hotel-image {
+    height: 190px;
+    object-fit: cover;
+}
+
+
+/* ================================
+   HERO
+================================ */
+
+.hero {
+    background:
+        linear-gradient(
+            135deg,
+            #0d6efd,
+            #2563eb
+        );
+
+    color: white;
+
+    padding: 70px 0;
+}
+
+.hero h1 {
+    font-size: 42px;
+    font-weight: 700;
+}
+
+.hero p {
+    color: rgba(255,255,255,0.85);
+}
+
+
+/* ================================
+   SEARCH BOX
+================================ */
+
+.search-box {
+    background: white;
+
+    border-radius: 14px;
+
+    padding: 20px;
+
+    box-shadow:
+        0 15px 35px rgba(15, 23, 42, 0.12);
+}
+
+
+/* ================================
+   DASHBOARD
+================================ */
+
+.stat-card {
+    background: white;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 14px;
+
+    padding: 24px;
+}
+
+.stat-label {
+    color: #64748b;
+    font-size: 14px;
+}
+
+.stat-value {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+
+/* ================================
+   TABLE
+================================ */
+
+.table {
+    margin-bottom: 0;
+}
+
+.table thead th {
+    color: #64748b;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.table tbody td {
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+
+/* ================================
+   BUTTONS
+================================ */
+
+.btn {
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.btn-primary {
+    padding-left: 18px;
+    padding-right: 18px;
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+footer {
+    background: white;
 }

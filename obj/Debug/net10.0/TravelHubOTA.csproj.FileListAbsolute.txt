@@ -21,7 +21,6 @@ C:\Users\USER\Desktop\TravelHubOTA\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
 C:\Users\USER\Desktop\TravelHubOTA\obj\Debug\net10.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\USER\Desktop\TravelHubOTA\obj\Debug\net10.0\scopedcss\bundle\TravelHubOTA.styles.css
 C:\Users\USER\Desktop\TravelHubOTA\obj\Debug\net10.0\scopedcss\projectbundle\TravelHubOTA.bundle.scp.css
-C:\Users\USER\Desktop\TravelHubOTA\obj\Debug\net10.0\compressed\86xnwvu05i-{0}-b9sayid5wm-b9sayid5wm.gz
 C:\Users\USER\Desktop\TravelHubOTA\obj\Debug\net10.0\compressed\s8219qszlp-{0}-61n19gt1b8-61n19gt1b8.gz
 C:\Users\USER\Desktop\TravelHubOTA\obj\Debug\net10.0\compressed\54apk4rmav-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
 C:\Users\USER\Desktop\TravelHubOTA\obj\Debug\net10.0\compressed\b01pccoecj-{0}-bqjiyaj88i-bqjiyaj88i.gz
@@ -100,3 +99,4 @@ C:\Users\USER\Desktop\TravelHubOTA\bin\Debug\net10.0\data\bookings.json
 C:\Users\USER\Desktop\TravelHubOTA\bin\Debug\net10.0\data\hotels.json
 C:\Users\USER\Desktop\TravelHubOTA\bin\Debug\net10.0\data\users.json
 C:\Users\USER\Desktop\TravelHubOTA\obj\Debug\net10.0\TravelHubOTA.sourcelink.json
+C:\Users\USER\Desktop\TravelHubOTA\obj\Debug\net10.0\compressed\86xnwvu05i-{0}-3fnndxwb4r-3fnndxwb4r.gz
