@@ -1,0 +1,178 @@
+@model TravelHubOTA.Models.Booking
+
+@{
+    ViewData["Title"] = "Booking Details";
+
+    var hotel =
+        ViewBag.Hotel as TravelHubOTA.Models.Hotel;
+}
+
+<div class="mb-4">
+
+    <a asp-controller="Booking"
+       asp-action="MyBookings"
+       class="btn btn-outline-secondary">
+        ← Back to My Bookings
+    </a>
+
+</div>
+
+
+<div class="row justify-content-center">
+
+    <div class="col-lg-8">
+
+        <div class="card shadow-sm">
+
+            <div class="card-body p-4">
+
+                <!-- Header -->
+
+                <div class="d-flex justify-content-between align-items-center mb-4">
+
+                    <div>
+
+                        <small class="text-muted">
+                            Booking Reference
+                        </small>
+
+                        <h2 class="mb-0">
+                            #TH-@Model.Id.ToString("D5")
+                        </h2>
+
+                    </div>
+
+                    @if (Model.Status == "Confirmed")
+                    {
+                        <span class="badge bg-success fs-6">
+                            Confirmed
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-secondary fs-6">
+                            @Model.Status
+                        </span>
+                    }
+
+                </div>
+
+
+                <hr />
+
+
+                <!-- Hotel -->
+
+                <div class="mb-4">
+
+                    <h5 class="text-muted">
+                        Hotel
+                    </h5>
+
+                    <h3>
+                        @hotel?.Name
+                    </h3>
+
+                    <p class="text-muted">
+                        📍 @hotel?.City, @hotel?.Country
+                    </p>
+
+                </div>
+
+
+                <!-- Guest -->
+
+                <div class="row mb-4">
+
+                    <div class="col-md-6">
+
+                        <small class="text-muted">
+                            Guest Name
+                        </small>
+
+                        <h5>
+                            @Model.GuestName
+                        </h5>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <small class="text-muted">
+                            Rooms
+                        </small>
+
+                        <h5>
+                            @Model.Rooms
+                        </h5>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Dates -->
+
+                <div class="row mb-4">
+
+                    <div class="col-md-6">
+
+                        <small class="text-muted">
+                            Check In
+                        </small>
+
+                        <h5>
+                            @Model.CheckIn.ToString("dd MMM yyyy")
+                        </h5>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <small class="text-muted">
+                            Check Out
+                        </small>
+
+                        <h5>
+                            @Model.CheckOut.ToString("dd MMM yyyy")
+                        </h5>
+
+                    </div>
+
+                </div>
+
+
+                <hr />
+
+
+                <!-- Price -->
+
+                <div class="d-flex justify-content-between align-items-center">
+
+                    <span class="fs-5">
+                        Total Amount
+                    </span>
+
+                    <span class="fs-3 fw-bold text-success">
+                        $@Model.TotalPrice
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="d-flex justify-content-center gap-2 mt-4">
+
+            <button onclick="window.print()"
+                    class="btn btn-outline-secondary">
+                Print Booking
+            </button>
+
+        </div>
+
+    </div>
+
+</div>

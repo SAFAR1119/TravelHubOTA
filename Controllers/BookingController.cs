@@ -118,4 +118,58 @@ public class BookingController : Controller
 
         return View(booking);
     }
+
+    public IActionResult MyBookings()
+   {
+      var agencyId = HttpContext.Session.GetInt32("AgencyId");
+
+     if (agencyId == null)
+     {
+        return RedirectToAction(
+            "Login",
+            "Account");
+     }
+
+     var bookings = _bookingService
+        .GetBookingsByAgency(agencyId.Value);
+
+     return View(bookings);
+    }
+
+    public IActionResult Details(int id)
+   {
+     var agencyId = HttpContext.Session.GetInt32("AgencyId");
+
+     if (agencyId == null)
+     {
+        return RedirectToAction(
+            "Login",
+            "Account");
+     }
+
+     var booking = _bookingService.GetBookingById(id);
+
+     if (booking == null)
+     {
+        return NotFound();
+     }
+
+     // Make sure this booking belongs to the logged-in agency.
+     if (booking.AgencyId != agencyId.Value)
+     {
+        return Forbid();
+     }
+
+     var hotel = _hotelService.GetHotelById(
+        booking.HotelId);
+
+     if (hotel == null)
+     {
+        return NotFound();
+     }
+
+     ViewBag.Hotel = hotel;
+
+     return View(booking);
+    }
 }

@@ -26,6 +26,15 @@ public class BookingService
             .FirstOrDefault(b => b.Id == id);
     }
 
+
+    public List<Booking> GetBookingsByAgency(int agencyId)
+{
+    return GetAllBookings()
+        .Where(b => b.AgencyId == agencyId)
+        .OrderByDescending(b => b.Id)
+        .ToList();
+}
+
     public Booking? CreateBooking(Booking booking)
     {
         var hotel = _hotelService.GetHotelById(booking.HotelId);
