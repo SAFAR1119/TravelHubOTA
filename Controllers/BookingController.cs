@@ -119,6 +119,60 @@ public class BookingController : Controller
         return View(booking);
     }
 
+    [HttpPost]
+public IActionResult Cancel(int id)
+{
+    var agencyId = HttpContext.Session.GetInt32("AgencyId");
+
+    if (agencyId == null)
+    {
+        return RedirectToAction(
+            "Login",
+            "Account");
+    }
+
+    var booking = _bookingService.GetBookingById(id);
+
+    if (booking == null)
+    {
+        return NotFound();
+    }
+
+    // Prevent one agency from cancelling another agency's booking.
+    if (booking.AgencyId != agencyId.Value)
+    {
+        return Forbid();
+    }
+
+    if (booking.Status == "Cancelled")
+    {
+        TempData["Error"] = "This booking has already been cancelled.";
+
+        return RedirectToAction(
+            "Details",
+            new { id });
+    }
+
+    var cancelled = _bookingService.CancelBooking(
+        id,
+        agencyId.Value);
+
+    if (!cancelled)
+    {
+        TempData["Error"] = "Unable to cancel this booking.";
+
+        return RedirectToAction(
+            "Details",
+            new { id });
+    }
+
+    TempData["Success"] = "Booking cancelled successfully.";
+
+    return RedirectToAction(
+        "Details",
+        new { id });
+   }
+
     public IActionResult MyBookings()
    {
       var agencyId = HttpContext.Session.GetInt32("AgencyId");

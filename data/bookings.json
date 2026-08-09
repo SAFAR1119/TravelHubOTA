@@ -19,7 +19,7 @@
     "CheckOut": "2026-08-14T00:00:00",
     "Rooms": 3,
     "TotalPrice": 1260,
-    "Status": "Confirmed"
+    "Status": "Cancelled"
   },
   {
     "Id": 3,
@@ -30,7 +30,7 @@
     "CheckOut": "2026-08-13T00:00:00",
     "Rooms": 1,
     "TotalPrice": 140,
-    "Status": "Confirmed"
+    "Status": "Cancelled"
   },
   {
     "Id": 4,
@@ -41,6 +41,28 @@
     "CheckOut": "2026-08-14T00:00:00",
     "Rooms": 15,
     "TotalPrice": 10800,
-    "Status": "Confirmed"
+    "Status": "Cancelled"
+  },
+  {
+    "Id": 5,
+    "HotelId": 3,
+    "AgencyId": 1,
+    "GuestName": "Ariyan",
+    "CheckIn": "2026-08-13T00:00:00",
+    "CheckOut": "2026-08-28T00:00:00",
+    "Rooms": 4,
+    "TotalPrice": 5700,
+    "Status": "Cancelled"
+  },
+  {
+    "Id": 6,
+    "HotelId": 2,
+    "AgencyId": 1,
+    "GuestName": "Purna Fahmida",
+    "CheckIn": "2026-08-11T00:00:00",
+    "CheckOut": "2026-08-19T00:00:00",
+    "Rooms": 5,
+    "TotalPrice": 7200,
+    "Status": "Cancelled"
   }
 ]

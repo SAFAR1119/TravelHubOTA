@@ -41,11 +41,14 @@ public class HotelService
             .ToList();
     }
 
-    public bool UpdateRoomAvailability(int hotelId, int roomsBooked)
+    public bool UpdateRoomAvailability(
+        int hotelId,
+        int roomsBooked)
     {
         var hotels = GetAllHotels();
 
-        var hotel = hotels.FirstOrDefault(h => h.Id == hotelId);
+        var hotel = hotels.FirstOrDefault(
+            h => h.Id == hotelId);
 
         if (hotel == null)
         {
@@ -59,7 +62,41 @@ public class HotelService
 
         hotel.RoomsAvailable -= roomsBooked;
 
-        _jsonService.Write("hotels.json", hotels);
+        _jsonService.Write(
+            "hotels.json",
+            hotels);
+
+        return true;
+    }
+
+    public bool RestoreRoomAvailability(
+        int hotelId,
+        int roomsReturned)
+    {
+        var hotels = GetAllHotels();
+
+        var hotel = hotels.FirstOrDefault(
+            h => h.Id == hotelId);
+
+        if (hotel == null)
+        {
+            return false;
+        }
+
+        hotel.RoomsAvailable += roomsReturned;
+
+        _jsonService.Write(
+            "hotels.json",
+            hotels);
+
+        return true;
+    }
+
+    public bool SaveHotels(List<Hotel> hotels)
+    {
+        _jsonService.Write(
+            "hotels.json",
+            hotels);
 
         return true;
     }

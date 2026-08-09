@@ -30,7 +30,7 @@
     "CheckOut": "2026-08-13T00:00:00",
     "Rooms": 1,
     "TotalPrice": 140,
-    "Status": "Confirmed"
+    "Status": "Cancelled"
   },
   {
     "Id": 4,
@@ -41,6 +41,6 @@
     "CheckOut": "2026-08-14T00:00:00",
     "Rooms": 15,
     "TotalPrice": 10800,
-    "Status": "Confirmed"
+    "Status": "Cancelled"
   }
 ]
